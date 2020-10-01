@@ -1,0 +1,192 @@
+2.sort circular linked iist 
+#include<stdio.h>
+#include<stdlib.h>
+struct node 
+{
+    int data ;
+    struct node *next ;
+
+} ;
+struct node *head= NULL ,*tail =NULL;
+void endcreate();
+void sort();
+void display();
+int main()
+{
+    int choice ;
+    while(1)
+    {
+      printf("\n __  _______menu \n");
+      printf("1:end insertion of linkeed list\n") ;
+      printf("2:sort the given circular linked list\n");
+      printf("3:display\n") ;
+      printf("4:exit \n");
+      printf("\nenter your choice = ");
+      scanf("%d",&choice);
+      switch(choice)
+      {
+          case 1:  endcreate();
+                   break ;
+          case 2: sort();
+                  break ;
+          case 3: display();
+                   break ;
+          case 4: exit(0);
+         
+          default :
+                    printf("invalid choice") ;
+          
+      }
+
+    }
+}
+void endcreate()
+{
+    struct node *newnode=NULL;
+    int num=1 ;
+    while(num>0 && num<2)
+    {
+        newnode=(struct node*) malloc(sizeof(struct node)) ;
+        printf("\nenter data =") ;
+        scanf("%d",&newnode->data) ;
+        newnode ->next= NULL ;
+        if(head==NULL)
+        {
+            head  =newnode ;
+            tail= newnode ;
+            newnode->next =head ;
+        }
+        else
+        {
+           tail ->next=newnode ;
+           tail = newnode ;
+           tail->next= head ;   
+        }
+    printf("do you want to insert at last enter 1 else 0 =") ;
+        scanf("%d",&num);
+    }
+    
+
+}
+void display()
+{
+    struct node *current= head ;
+    if(head ==NULL)
+    {
+        printf("list is empty") ;
+    }
+    else
+    {
+      do 
+      {
+         printf("  %d  ",current->data);
+         current=current->next ;
+      }while(current != head) ;
+      printf("\n");
+    }
+    
+}
+ void sort()
+ {
+     struct node *current=head ,*index = NULL ;
+     int temp ;
+     if(head == NULL)
+     {
+         printf("list is empty");
+     }
+     else
+     {
+         do
+         {
+             index=current->next ;
+             while(index != head )
+             {
+                 if(current ->data > index ->data)
+                 {
+                     temp =current ->data ;
+                     current->data =index ->data ;
+                     index->data = temp ;
+                 }
+                 index = index->next ;
+             }
+             current =current->next ;
+         }while(current ->next !=head);
+         
+     }
+     
+ }
+
+PS C:\Users\user\vik.c> cd "c:\Users\user\vik.c"
+PS C:\Users\user\vik.c> cmd /c .\"sortlinked.exe"
+
+ __  _______menu
+1:end insertion of linkeed list
+2:sort the given circular linked list
+3:display
+4:exit
+
+enter your choice = 1
+
+enter data =10
+do you want to insert at last enter 1 else 0 =1
+
+enter data =9
+do you want to insert at last enter 1 else 0 =1
+
+enter data =8
+do you want to insert at last enter 1 else 0 =1
+
+enter data =7
+do you want to insert at last enter 1 else 0 =1
+
+enter data =6
+do you want to insert at last enter 1 else 0 =1
+
+enter data =5
+do you want to insert at last enter 1 else 0 =1
+
+enter data =4
+do you want to insert at last enter 1 else 0 =1
+
+enter data =3
+do you want to insert at last enter 1 else 0 =1
+
+enter data =2
+do you want to insert at last enter 1 else 0 =1
+
+enter data =1
+do you want to insert at last enter 1 else 0 =0
+
+ __  _______menu
+1:end insertion of linkeed list
+2:sort the given circular linked list
+3:display
+4:exit
+
+enter your choice = 3
+  10    9    8    7    6    5    4    3    2    1
+
+ __  _______menu
+1:end insertion of linkeed list
+2:sort the given circular linked list
+3:display
+4:exit
+
+enter your choice = 2
+
+ __  _______menu
+1:end insertion of linkeed list
+2:sort the given circular linked list
+3:display
+4:exit
+
+enter your choice = 3
+  1    2    3    4    5    6    7    8    9    10
+
+ __  _______menu
+1:end insertion of linkeed list
+2:sort the given circular linked list
+3:display
+4:exit
+
+enter your choice = 4
